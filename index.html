@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Ví dụ thuộc tính background-position</title>
+    <style>
+        .container {
+            width: 500px;
+            height: 200px;
+            margin-bottom: 15px;
+            border: 2px solid #333;
+            background-image: url('../GamePikachuV2/image/background.png'); /* Ảnh 100x100 */
+            background-size: 100px 100px;
+            background-repeat: no-repeat; /* Tắt lặp để thấy rõ vị trí ảnh */
+            background-color: #f0f0f0;
+            font-weight: bold;
+            padding: 10px;
+        }
+
+        /* 1. Dùng từ khóa (Keywords) */
+        .pos-center {
+            background-position: center; /* Nằm chính giữa container */
+            background-size: cover;
+        }
+        .pos-top-right {
+            background-position: top right; /* Nằm ở góc trên cùng bên phải */
+            background-size: contain;
+        }
+
+        /* 2. Dùng đơn vị pixel (Tọa độ X Y) */
+        .pos-pixel {
+            /* Cách mép trái 50px, cách mép trên 30px */
+            background-position: 50px 30px; 
+        }
+
+        /* 3. Dùng đơn vị phần trăm (%) */
+        .pos-percent {
+            /* Đẩy sang phải 80% chiều rộng, đẩy xuống 50% chiều cao */
+            background-position: 80% 50%; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container pos-center">1. center (Chính giữa)</div>
+    <div class="container pos-top-right">2. top right (Góc trên bên phải)</div>
+    <div class="container pos-pixel">3. 50px 30px (Cách trái 50px, cách trên 30px)</div>
+    <div class="container pos-percent">4. 80% 50% (Cách theo tỷ lệ % container)</div>
+
+</body>
+</html>
