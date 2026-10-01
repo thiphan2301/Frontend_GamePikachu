@@ -1,51 +1,49 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
-    <title>Ví dụ thuộc tính background-position</title>
-    <style>
-        .container {
-            width: 500px;
-            height: 200px;
-            margin-bottom: 15px;
-            border: 2px solid #333;
-            background-image: url('../GamePikachuV2/image/background.png'); /* Ảnh 100x100 */
-            background-size: 100px 100px;
-            background-repeat: no-repeat; /* Tắt lặp để thấy rõ vị trí ảnh */
-            background-color: #f0f0f0;
-            font-weight: bold;
-            padding: 10px;
-        }
+    <title>Pikachu</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" />
 
-        /* 1. Dùng từ khóa (Keywords) */
-        .pos-center {
-            background-position: center; /* Nằm chính giữa container */
-            background-size: cover;
-        }
-        .pos-top-right {
-            background-position: top right; /* Nằm ở góc trên cùng bên phải */
-            background-size: contain;
-        }
-
-        /* 2. Dùng đơn vị pixel (Tọa độ X Y) */
-        .pos-pixel {
-            /* Cách mép trái 50px, cách mép trên 30px */
-            background-position: 50px 30px; 
-        }
-
-        /* 3. Dùng đơn vị phần trăm (%) */
-        .pos-percent {
-            /* Đẩy sang phải 80% chiều rộng, đẩy xuống 50% chiều cao */
-            background-position: 80% 50%; 
-        }
-    </style>
 </head>
+
 <body>
+    <div class="container">
+        <div id="header">
+            <div id="title">
+                <h4>LUMA </h4>
+                <h4>CONNECT</h4>
+                <h4>BIO-LUMA FRUIT PUZZLE</h4>
+            </div>
+            <div id="time">
+                <div id="time-head">
+                    <h4>TIME</h4>
+                    <h3>02:00</h3>
+                </div>
+                <div id="time-bar">
 
-    <div class="container pos-center">1. center (Chính giữa)</div>
-    <div class="container pos-top-right">2. top right (Góc trên bên phải)</div>
-    <div class="container pos-pixel">3. 50px 30px (Cách trái 50px, cách trên 30px)</div>
-    <div class="container pos-percent">4. 80% 50% (Cách theo tỷ lệ % container)</div>
+                </div>
+            </div>
+            <div id="score">
+                <div id="score-group">
+                    <h4>SCORE</h4>
+                    <h3>18,720</h3>
+                </div>
+                <div id="bar">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </div>
+        <div id="body">
 
+        </div>
+        <div id="footer">
+
+        </div>
+    </div>
 </body>
+<script src="main.js"></script>
+
 </html>
