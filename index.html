@@ -4,8 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Pikachu</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- gg font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
+
+
 
 </head>
 
@@ -13,23 +20,21 @@
     <div class="container">
         <div id="header">
             <div id="title">
-                <h4>LUMA </h4>
-                <h4>CONNECT</h4>
-                <h4>BIO-LUMA FRUIT PUZZLE</h4>
+                <img src="./image/logo1.png" alt="logo game">
             </div>
             <div id="time">
                 <div id="time-head">
-                    <h4>TIME</h4>
-                    <h3>02:00</h3>
+                    <p>THỜI GIAN</p>
+                    <p>00:00</p>
                 </div>
                 <div id="time-bar">
 
                 </div>
             </div>
-            <div id="score">
+            <div class="score">
                 <div id="score-group">
-                    <h4>SCORE</h4>
-                    <h3>18,720</h3>
+                    <p>ĐIỂM</p>
+                    <p id="score">0</p>
                 </div>
                 <div id="bar">
                     <i class="fa-solid fa-bars"></i>
@@ -37,7 +42,31 @@
             </div>
         </div>
         <div id="body">
+            <div id="left">
+                <div class="item">
+                    <p>Cấp Độ</p>
+                    <i class="fa-solid fa-1"></i>
+                </div>
+                <div class="item">
+                    <p>Gợi Ý</p>
+                    <i class="fa-solid fa-lightbulb"></i>
+                </div>
+                <div class="item">
+                    <p>Xáo Trộn</p>
+                    <i class="fa-solid fa-shuffle"></i>
+                </div>
+                <div class="item">
+                    <p>Di Chuyển</p>
+                    <i class="fa-solid fa-right-left"></i>
+                </div>
+            </div>
+            <!-- Grid chứa ma trận game -->
+            <div id="game-board" class="neon-panel">
 
+            </div>
+            <div id="right">
+
+            </div>
         </div>
         <div id="footer">
 
