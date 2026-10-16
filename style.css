@@ -24,7 +24,7 @@ body{
     padding: 0.5rem;
     font-family: var(--font-family);
     font-size: .5rem;
-    width: 60%;
+    width: 70%;
     margin: 1rem auto;
     border-radius: 12px;
     box-shadow: 0 0 15px rgba(0, 243, 255, 0.4), inset 0 0 10px rgba(0, 243, 255, 0.2);
@@ -74,9 +74,9 @@ body{
 
 #body{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: flex-start;  /* ko cho các cột tự động kéo giãn chiều cao theo nhau */
-    width: 60%;
+    width: 70%;
     margin: 0 auto; 
     color: white;
 }
@@ -105,6 +105,20 @@ body{
 .item i{
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
+}
+.count-die{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    padding: .2rem;
+    border-radius:.5rem;
+}
+.count-die i{
+    font-size: 1.2rem;
+    margin: .6rem .2rem;
+    color: #ff337a;
 }
 
 /* Glassmorphism & Neon Glow effect */
@@ -153,4 +167,10 @@ body{
 
 .cell.empty {
     visibility: hidden; /* Giữ nguyên không gian DOM, nhưng ẩn hiển thị */
+}
+.hint {
+    border-color: #ffff00 !important;
+    box-shadow: 0 0 15px #ffff00 !important;
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
 }
