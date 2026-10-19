@@ -11,9 +11,6 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" />
     <link rel="stylesheet" href="style.css">
-
-
-
 </head>
 
 <body>
@@ -25,11 +22,9 @@
             <div id="time">
                 <div id="time-head">
                     <p>THỜI GIAN</p>
-                    <p>00:00</p>
+                    <p>02:00</p>
                 </div>
-                <div id="time-bar">
-
-                </div>
+                <div id="time-bar"></div>
             </div>
             <div class="score">
                 <div id="score-group">
@@ -43,9 +38,20 @@
         </div>
         <div id="body">
             <div id="left">
-                <div class="item">
+                <div class="item" id="level-menu-btn">
                     <p>Cấp Độ</p>
-                    <i class="fa-solid fa-1"></i>
+                    <span id="level">1</span>
+                    <!-- menu chọn lv -->
+                    <div id="level-dropdown" class="level-dropdown-hidden">
+                        <div data-lvl="1">Cấp Độ 1 (Cơ bản)</div>
+                        <div data-lvl="2">Cấp Độ 2 (Trọng lực)</div>
+                        <div data-lvl="3">Cấp Độ 3 (Vật cản)</div>
+                        <div data-lvl="4">Cấp Độ 4 (Ẩn hiện)</div>
+                        <div data-lvl="5">Cấp Độ 5 (Bom hẹn giờ)</div>
+                        <div data-lvl="6">Cấp Độ 6 (Băng Chuyền)</div>
+                        <div data-lvl="7">Cấp Độ 7 (Trọng lực + Vật cản)</div>
+                        <div data-lvl="8">Cấp Độ 8 (Ẩn hiện + Bom)</div> 
+                    </div>
                 </div>
                 <div class="item" id="hint-btn">
                     <p>Gợi Ý</p>
@@ -61,9 +67,7 @@
                 </div>
             </div>
             <!-- Grid chứa ma trận game -->
-            <div id="game-board" class="neon-panel">
-
-            </div>
+            <div id="game-board" class="neon-panel"></div>
             <div id="right">
                 <div class="count-die">
                     <i class="fa-solid fa-heart"></i>
@@ -74,9 +78,7 @@
                 </div>
             </div>
         </div>
-        <div id="footer">
-
-        </div>
+        <div id="footer"></div>
     </div>
 </body>
 <script src="main.js"></script>

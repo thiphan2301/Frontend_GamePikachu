@@ -10,34 +10,31 @@ body{
     --primary-color: #99F6FC;
     --secondary-color: #EDBDED;
     --border-color: #00f3ff;
-    --font-family: "Varela Round", sans-serif !important;;
-}
-
-.container{
+    --font-family: "Varela Round", sans-serif;
 }
 #header{
     color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 1rem;
+    margin: 1rem auto;
     padding: 0.5rem;
     font-family: var(--font-family);
     font-size: .5rem;
     width: 70%;
-    margin: 1rem auto;
     border-radius: 12px;
     box-shadow: 0 0 15px rgba(0, 243, 255, 0.4), inset 0 0 10px rgba(0, 243, 255, 0.2);
     border: 1px solid var(--border-color);  
+    background: rgba(10, 15, 35, 0.7);
+    backdrop-filter: blur(5px);
 }
 #title{
     display: block;
     text-align: center;
 }
 #title img{
-    width: 100px;
-    height: 100px;
-
+    width: 80px;
+    height: 80px;
 }
 #time{
     display: flex;
@@ -48,6 +45,7 @@ body{
 #time-head p,
 .score p{
     font-size: 1rem;
+    margin: 0 5px;
 }
 .score{
     display: flex;
@@ -65,17 +63,17 @@ body{
     border-radius: .5rem;
     background: rgba(255, 255, 255, 0.05);
     margin: 1rem;
+    cursor: pointer;
     transition: all 0.2s ease-in-out;
 }
 #bar:hover{
     box-shadow: 0 0 15px var(--secondary-color);
-    transition: all 0.2s ease-in-out;
 }
 
 #body{
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;  /* ko cho các cột tự động kéo giãn chiều cao theo nhau */
+    align-items: flex-start;
     width: 70%;
     margin: 0 auto; 
     color: white;
@@ -86,7 +84,8 @@ body{
     flex-direction: column;
     justify-content: center;
 }
-.item{
+.item {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -94,11 +93,19 @@ body{
     border: 1px solid var(--border-color);
     border-radius: .5rem;
     margin-bottom: .5rem;
-    padding: .2rem;
-    backdrop-filter: blur(5px);
+    padding: 10px 15px;
+    cursor: pointer;
+    background: rgba(10, 15, 35, 0.95); 
+    z-index: 10;
+}
+
+/* Khi item đang mở dropdown thì đẩy z-index lên cao nhất */
+.item:has(.level-dropdown-hidden.show) {
+    z-index: 1000;
 }
 .item:hover{
     box-shadow: 0 0 15px var(--secondary-color);
+    transform: scale(1.05);
     transition: all 0.3s ease-in-out;
 }
 
@@ -112,8 +119,9 @@ body{
     justify-content: center;
     align-items: center;
     border: 1px solid var(--border-color);
-    padding: .2rem;
+    padding: 10px;
     border-radius:.5rem;
+    background: rgba(10, 15, 35, 0.8);
 }
 .count-die i{
     font-size: 1.2rem;
@@ -129,14 +137,14 @@ body{
     box-shadow: 0 0 15px rgba(0, 243, 255, 0.4), inset 0 0 10px rgba(0, 243, 255, 0.2);
     backdrop-filter: blur(5px);
     color: white;
-    padding: 15px 25px;
+    padding: 20px;
+    position: relative;
 }
 
 /* CSS Grid cho Ma trận */
 #game-board {
     display: grid;
     gap: 6px; 
-    padding: 20px;
     margin: 0 auto;
 }
 
@@ -166,11 +174,93 @@ body{
 }
 
 .cell.empty {
-    visibility: hidden; /* Giữ nguyên không gian DOM, nhưng ẩn hiển thị */
+    visibility: hidden; 
 }
+
 .hint {
     border-color: #ffff00 !important;
     box-shadow: 0 0 15px #ffff00 !important;
     transform: scale(1.05);
     transition: all 0.2s ease-in-out;
+}
+
+/* Chướng ngại vật (Level 3) */
+.cell.obstacle {
+    background: rgba(50, 50, 80, 0.6);
+    border-color: #555;
+    cursor: not-allowed;
+}
+
+/* Hiệu ứng ẩn hiện (Level 4) */
+@keyframes blinking {
+    0% { opacity: 1; }
+    50% { opacity: 0.1; }
+    100% { opacity: 1; }
+}
+
+.blinking-icon {
+    animation: blinking 2.5s infinite ease-in-out;
+}
+
+/* Đường nối line neon khi ăn đúng */
+.line-segment {
+    position: absolute;
+    background-color: #00f3ff;
+    box-shadow: 0 0 10px #00f3ff, 0 0 20px #00f3ff;
+    z-index: 10;
+    pointer-events: none;
+    border-radius: 2px;
+}
+
+.level-dropdown-hidden {
+    display: none;
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    width: 140px;
+    background: #0a0f23; 
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 243, 255, 0.4);
+    z-index: 9999; 
+    overflow: hidden;
+}
+
+.level-dropdown-hidden.show {
+    display: block;
+}
+
+.level-dropdown-hidden div {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.level-dropdown-hidden div:hover {
+    background: rgba(0, 243, 255, 0.3);
+    color: #fff;
+    padding-left: 16px;
+}
+
+/* Ô Bom Hẹn Giờ (Level 5) */
+.cell.bomb {
+    background: rgba(255, 77, 77, 0.2);
+    border-color: #ff4d4d;
+    box-shadow: 0 0 10px rgba(255, 77, 77, 0.5);
+    animation: bomb-pulse 1s infinite alternate;
+}
+
+@keyframes bomb-pulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05); }
+}
+
+.bomb-timer {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #ff4d4d;
+    text-shadow: 0 0 5px #ff4d4d;
 }
